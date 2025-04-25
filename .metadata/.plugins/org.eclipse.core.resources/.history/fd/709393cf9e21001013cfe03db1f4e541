@@ -1,0 +1,26 @@
+package org.zerock.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.zerock.service.BoardService;
+
+/*
+ * web-study-11 (JSP)
+ * BoardServlet 요청 -> BoardServelt -> boardListAction 실행하는 코드 구현
+ */
+
+//@Controller : Container에 BoardContrller 등록
+//@RequestMapping("/BoardServlet") : "/BoardServlet" 요청하면 BoardController 실행
+@Controller
+@RequestMapping("/BoardServlet")
+public class BoardController {
+
+	private BoardService service;
+	
+	@GetMapping("/boardList")
+	public String boardList() {
+		
+		return "boardList";
+	}
+}

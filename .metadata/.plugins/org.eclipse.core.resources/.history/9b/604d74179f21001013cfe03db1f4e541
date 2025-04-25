@@ -1,0 +1,14 @@
+package org.zerock.service;
+
+import org.springframework.stereotype.Service;
+import org.zerock.dto.BoardVO;
+
+@Service
+public class BoardService {
+	
+	public BoardVO boardList() {
+		BoardVO vo = new BoardVO();
+		
+		return vo;
+	}
+}
