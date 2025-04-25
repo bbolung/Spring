@@ -22,6 +22,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+	<!-- controller 안에 있는 @(어노테이션) 있는 것들 객체 생성 -->
 	<context:component-scan base-package="org.zerock.controller" />
 	
 	

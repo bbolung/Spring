@@ -7,7 +7,7 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	
-	<!-- org.zerock.sample 패키지 스캔을 위한 경로 설정 -->
+	<!-- org.zerock.sample 패키지 스캔을 위한 경로 설정 => 해당 패키지 스캔 + 객체 생성 -->
 	<context:component-scan base-package="org.zerock.sample"></context:component-scan>
 	
 </beans>

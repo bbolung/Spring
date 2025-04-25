@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 /**
  * Handles requests for the application home page.
  */
+//@Controller : 객체 생성(bean) + Handler Mapping 생성
 @Controller
 public class HomeController {
 	
