@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>게시글 리스트</title>
+<title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="../resources/css/shopping.css">
 </head>
 <body>
@@ -15,7 +15,7 @@
       <table class="list">
          <tr>
             <td colspan="5" style="border: white; text-align: right"><a
-               href="BoardServlet?command=board_write_form">게시글 등록</a></td>
+               href="/board/register">게시글 등록</a></td>
          </tr>
          <tr>
             <th>번호</th>
@@ -24,13 +24,13 @@
             <th>작성일</th>
             <th>조회</th>
          </tr>
-         <c:forEach var="board" items="${boardList}">
+         <c:forEach var="board" items="${boardList }">
             <tr class="record">
                <td>${board.num }</td>
                <td><a href="BoardServlet?command=board_view&num=${board.num}">
-                     ${board.title} </a></td>
+                     ${board.title } </a></td>
                <td>${board.name}</td>
-               <td><fmt:formatDate value="${board.writeDate}" /></td>
+               <td><fmt:formatDate value="${board.writeDate }" /></td>
                <td>${board.readCount}</td>
             </tr>
          </c:forEach>

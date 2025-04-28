@@ -1,0 +1,14 @@
+package org.zerock.common;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+public class DBManager {
+
+	public static void close(Connection conn, PreparedStatement pstmt, ResultSet rs) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

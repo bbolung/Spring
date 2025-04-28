@@ -1,0 +1,31 @@
+package org.zerock.persistance;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+import org.junit.Test;
+
+import lombok.extern.log4j.Log4j;
+
+@Log4j
+public class JDBCTests {
+
+	//JDBCTests 실행하면 static 자동으로 메모리에 올라감(static은 객체 생성 전에 메모리에 로딩됨)
+	static {
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	@Test
+	public void testConnection() {
+		private String url = "jdbc.oracle:thin:@localhost:1521:xe";
+		private String uid = "hr";
+		private 
+		
+		Connection conn = DriverManager.getConnection(null);
+	}
+}
