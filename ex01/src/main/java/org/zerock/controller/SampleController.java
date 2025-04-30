@@ -1,8 +1,12 @@
 package org.zerock.controller;
 
+
 import java.text.SimpleDateFormat;
 
 import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
@@ -14,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.zerock.dto.SampleDTO;
-import org.zerock.dto.TodoDTO;
+import org.zerock.domain.SampleDTO;
+import org.zerock.domain.TodoDTO;
 
 import lombok.extern.log4j.Log4j;
 
@@ -103,5 +107,17 @@ public class SampleController {
 		log.info(dto);
 		
 		return "ex06_1";
+	}
+	
+	@GetMapping("/ex07")
+	//ResponseEntity : json으로 변환하여 반환 + 상태 코드값까지 반환
+	//HttpHeaders : 객체 생성하여 웹 + f12 - network에서 Content-type 변경O
+	public ResponseEntity<String> ex07(){
+		
+		//{"name" : "홍길동"}
+		String msg = "{\"name\" : \"홍길동\"}";
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("Content-type", "application/json");
+		return new ResponseEntity<String>(msg, headers, HttpStatus.ACCEPTED);
 	}
 }
