@@ -26,11 +26,9 @@ public class JDBCRootContextTests {
 	
 	@Test
 	public void testConnection() {
-		
-		try {
-			Connection conn = dataSource.getConnection();
-			log.info("conn: " + conn); 		//console에 값이 나오면 DB 정상 연결
-		} catch (SQLException e) {
+		try(Connection conn = dataSource.getConnection()) {
+			log.info("conn >> " + conn);	//console에 값이 나오면 DB 정상 연결
+		}catch(Exception e) {
 			e.printStackTrace();
 		}
 	}

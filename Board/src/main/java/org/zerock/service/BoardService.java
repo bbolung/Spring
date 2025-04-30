@@ -31,7 +31,7 @@ public class BoardService {
 		return boardRepository.selectOneByNum(num);
 	}
 	
-	public void insetBoard(BoardVO vo) {
+	public void insertBoard(BoardVO vo) {
 		boardRepository.insertBoard(vo);
 	}
 	
@@ -43,6 +43,21 @@ public class BoardService {
 		boardRepository.deleteBoard(num);
 	}
 	
+	public void updateReadCount(int num) {
+		boardRepository.updateReadCount(num);
+	}
+	
+	public boolean checkPassword(int num, String pass) {
+		
+		BoardVO vo = boardRepository.selectOneByNum(num);
+		
+		//입력받은 비밀번호와 DB 저장된 비밀번호 일치하는지 확인
+		if(vo.getPass().equals(pass)) {
+			return true;
+		}else {
+			return false;
+		}
+	}
 	
 	
 }

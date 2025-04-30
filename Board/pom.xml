@@ -131,11 +131,19 @@
 		    <version>23.7.0.25.01</version>
 		</dependency>
 		
+		<!-- json <===> java 객체 변환 -->
 		<dependency>
-          <groupId>com.fasterxml.jackson.core</groupId>
-          <artifactId>jackson-databind</artifactId>
-          <version>2.10.0</version> 
-      </dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>2.19.0</version>
+		</dependency>
+
+		<!-- xml <===> java 객체 변환 -->
+		<dependency>
+		    <groupId>com.fasterxml.jackson.dataformat</groupId>
+		    <artifactId>jackson-dataformat-xml</artifactId>
+		    <version>2.19.0</version>
+		</dependency>
 		
 	</dependencies>
     <build>

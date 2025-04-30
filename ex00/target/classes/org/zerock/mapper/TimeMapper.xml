@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.zerock.mapper.TimeMapper">
+
+  <!-- id="메소드명" resultType="반환 타입" -->
+  <select id="getTime2" resultType="String">
+    select sysdate from dual
+  </select>
+  
+  <select id="selectAllList" resultType="org.zerock.dto.BoardVO">
+  	select * from board order by num desc
+  </select>
+  
+  <select id="selectOneByNum" resultType="org.zerock.dto.BoardVO">
+  	select * from board where num = #{num}
+  </select>
+  
+  <select id="insertBoard">
+  	insert into board(num, name, pass, email, title, content)
+  	values(board_seq.nextval, #{name}, #{pass}, #{email}, #{title}, #{content})
+  </select>
+ 
+</mapper>
