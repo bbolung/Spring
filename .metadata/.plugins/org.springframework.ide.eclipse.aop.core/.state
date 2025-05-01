@@ -2,4 +2,5 @@
 <aop-reference-model>
 <aop-project name="Board"/>
 <aop-project name="ex00"/>
+<aop-project name="ex01"/>
 </aop-reference-model>
