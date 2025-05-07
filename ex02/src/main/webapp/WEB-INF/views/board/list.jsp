@@ -75,6 +75,27 @@
                     	</tr>
                     </c:forEach>
                 </table>
+                
+                <!-- 페이징 처리 -->
+                <div class="container">
+                	<div class="pull-right">
+					  <ul class="pagination">
+					  	
+					  	<c:if test="${pageMaker.prev}">
+					    	<li class="page-item"><a class="page-link" href="#">Previous</a></li>
+					    </c:if>
+					    
+					    <c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+						    <li class="page-item"><a class="page-link" href="#">${num}</a></li>
+					    </c:forEach>
+					    
+					    <c:if test="${pageMaker.next}">
+					    	<li class="page-item"><a class="page-link" href="#">Next</a></li>
+					    </c:if>
+					  </ul>
+					 </div>
+				</div>
+                <!-- end 페이징 처리 -->
             </div>
             <!-- end panel-body -->
         </div>

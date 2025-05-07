@@ -3,6 +3,7 @@ package org.zerock.mapper;
 import java.util.List;
 
 import org.zerock.domain.BoardVO;
+import org.zerock.domain.Criterial;
 
 public interface BoardMapper {
 	
@@ -22,4 +23,7 @@ public interface BoardMapper {
 	
 	//DB의 데이터 변경
 	public int update(BoardVO board);
+	
+	//페이징 처리한 전체 데이터 조회
+	public List<BoardVO> getListWithPage(Criterial cri);
 }

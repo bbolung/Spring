@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.zerock.domain.BoardVO;
+import org.zerock.domain.Criterial;
 
 import lombok.extern.log4j.Log4j;
 
@@ -81,5 +82,15 @@ public class BoardMapperTests {
 		
 		int result = mapper.update(vo);
 		log.info("result >> " + result); 	//result = 1 (성공), 0(실패)
+	}
+	
+	//페이징 처리한 전체 목록 조회
+	@Test
+	public void testPaggin() {
+//		List<BoardVO> list = mapper.getListWithPage(new Criterial(1,10)); -> 1page
+//		List<BoardVO> list = mapper.getListWithPage(new Criterial(2,10)); -> 2page
+		List<BoardVO> list = mapper.getListWithPage(new Criterial(3,10));  //3apge
+		
+		list.forEach(board -> log.info(board));
 	}
 }

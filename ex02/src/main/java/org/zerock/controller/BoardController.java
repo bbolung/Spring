@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.domain.BoardVO;
+import org.zerock.domain.Criterial;
+import org.zerock.domain.PageDTO;
 import org.zerock.service.BoardService;
 
 import lombok.RequiredArgsConstructor;
@@ -24,11 +26,13 @@ public class BoardController {
 	private final BoardService service;
 	
 	@GetMapping("/list")
-	public void list(Model model) {
-		log.info("list.....");
+	public void list(Criterial cri, Model model) {
+		log.info("list....." + cri);
 		
-		List<BoardVO> list = service.getList();
+		List<BoardVO> list = service.getList(cri);
 		model.addAttribute("list", list);
+		
+		model.addAttribute("pageMaker", new PageDTO(cri, 172));	//test용이지만 나중에 bno 전체 개수로 변경
 	}
 	
 	@GetMapping("/register")

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.zerock.domain.BoardVO;
+import org.zerock.domain.Criterial;
 
 import lombok.extern.log4j.Log4j;
 
@@ -36,6 +37,6 @@ public class BoardServiceImplTests {
 	@Test
 	public void testGetList() {
 		//전체 데이터 가져와서 반복문 forEach에서 람다식으로 전체 출력해줌
-		service.getList().forEach(board -> log.info(board));
+		service.getList(new Criterial()).forEach(board -> log.info(board));
 	}
 }
