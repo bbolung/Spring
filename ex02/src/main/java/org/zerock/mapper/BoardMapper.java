@@ -1,6 +1,7 @@
 package org.zerock.mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import org.zerock.domain.BoardVO;
 import org.zerock.domain.Criterial;
@@ -26,4 +27,10 @@ public interface BoardMapper {
 	
 	//페이징 처리한 전체 데이터 조회
 	public List<BoardVO> getListWithPage(Criterial cri);
+	
+	//DB 전체 데이터의 수 가져오기(페이지 버튼)
+	public int getTotalCount(Criterial cri);
+	
+	//다중 조건 검색
+	public List<BoardVO> searchTest(Map<String, Map<String, String>> map);
 }

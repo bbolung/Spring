@@ -2,7 +2,9 @@ package org.zerock.mapper;
 
 import static org.junit.Assert.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -92,5 +94,50 @@ public class BoardMapperTests {
 		List<BoardVO> list = mapper.getListWithPage(new Criterial(3,10));  //3apge
 		
 		list.forEach(board -> log.info(board));
+	}
+	
+	//검색 처리(연습용)
+	@Test
+	public void testSearch() {
+		Map<String, String> map  = new HashMap<String, String>();
+		
+		map.put("T", "수정 제목");
+		map.put("C", "은혜");
+		map.put("W", "user");
+		
+		Map<String, Map<String, String>> outer = new HashMap<>();
+		
+		outer.put("map", map);
+//		log.info(outer.get("map")); -> {C=은혜, T=어버이날}
+//		log.info( (outer.get("map")).get("T")); -> 어버이날
+		
+		List<BoardVO> list = mapper.searchTest(outer);
+		
+		log.info("---------------");
+		log.info(list);
+	}
+	
+	//다중 검색 처리
+	@Test
+	public void testSearch2() {
+		Criterial cri = new Criterial();
+		
+		cri.setKeyword("수정");
+		cri.setType("TW");
+		
+		mapper.getListWithPage(cri)
+		.forEach(board -> log.info(board));
+	}
+	
+	//getTotalCount 테스트
+	@Test
+	public void testTotalCount() {
+		Criterial cri = new Criterial();
+		
+		cri.setKeyword("수정");
+		cri.setType("TW");
+		
+		log.info("total Count : ");
+		mapper.getTotalCount(cri);
 	}
 }

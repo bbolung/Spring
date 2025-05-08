@@ -20,6 +20,10 @@
             <!-- end panel-heading -->
             <div class="panel-body">
             	<form role="form" action="/board/modify" method="post">
+            	
+            		<input type="hidden" name="pageNum" value='<c:out value="${cri.pageNum}"/>'>
+                	<input type="hidden" name="amount" value='<c:out value="${cri.amount}"/>'>
+            	
                 	<div class="form-group">
                 		<lable>Bno</lable>
                 		<input class="form-control" name="bno" 
@@ -73,8 +77,13 @@
 				formObj.attr("action", "/board/remove")
 			}else if(operation === 'list'){
 				formObj.attr("action", "/board/list").attr("method", "get");
-				formObj.empty();		//목록 페이지 이동할 때 입력한 데이터 필요X -> 전달되는 값 비우기
-				return ;
+				
+				let pageNumTag = $("input[name='pageNum']").clone();
+				let amountTag = $("input[name='amount']").clone();
+				
+				formObj.empty(); 	//input 전달값(name속성값) 삭제, 쿼리스트링 형태 모두 삭제
+				formObj.append(pageNumTag);
+				formObj.append(amountTag);
 			}
 			formObj.submit();
 		});

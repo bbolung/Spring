@@ -49,6 +49,8 @@
                 	
                 	<form id="openForm" action="/board/modify" method="get">
                 		<input type="hidden" id="bno" name="bno" value="<c:out value='${board.bno}'/>">
+                		<input type="hidden" name="pageNum" value="${cri.pageNum}">
+                		<input type="hidden" name="amount" value="${cri.amount}">
                 	</form>
             </div>
             <!-- end panel-body -->
