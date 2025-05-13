@@ -61,6 +61,45 @@
 </div>
 <!-- end row -->
 
+<script type = "text/javascript" src="/resources/js/reply.js"></script>
+
+<script type="text/javascript">
+	let bnoValue = '<c:out value="${board.bno}"/>';
+	
+	/*
+	replyService.add(
+		{reply:"JS Test", replyer: "tester", bno:1},
+		
+		function(result){
+			alert("Result: " + result);
+		}
+	);
+	*/
+	
+	/*
+	replyService.getList({bno:bnoValue, page:1},
+		
+		function(list){
+			for(let i=0; i<list.length; i++){
+				console.log(list[i]);
+			}
+		}
+	);
+	*/
+	
+	replyService.remove(41, 
+			function(count){
+				if(count == 'success'){
+					alert("삭제 성공");
+				}
+			},
+			function(err){
+				alert("ERROR...."+err);
+			}
+	})
+	
+</script>
+
 <script type="text/javascript">
 	$(document).ready(function(){
 		let operForm = $("#openForm");
