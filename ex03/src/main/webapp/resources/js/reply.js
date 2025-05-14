@@ -24,7 +24,7 @@ let replyService = (function(){
                     error(er);
                 }
             }
-        })
+        });
     } //end add
 
     function getList(param, callback, error){
@@ -46,8 +46,8 @@ let replyService = (function(){
                     error(er);
                 }
             }
-        })
-    } //end getList
+        });
+    } //end getList(전체 데이터 조회회)
 
     function remove(rno, callback, error){
         $.ajax({
@@ -64,16 +64,83 @@ let replyService = (function(){
                     error(er);
                 }
             }
-        })
+        });
     } //end remove
 
+    function get(rno, callback, error){
+        $.ajax({
+            type: 'get',
+            url: '/replies/' + rno,
+
+            success: function(result, status, xhr){
+                if(callback){
+                    callback(result);
+                }
+
+            },
+            error: function(xhr, status, err){
+                if(error){
+                    error(err);
+                }
+            }
+        });
+    } //end get(단건 데이터 조회)
+
     function update(reply, callback, error){
-        
-    }
+        $.ajax({
+            type: 'put',
+            url: '/replies/' + reply.rno,
+            data: JSON.stringify(reply),    //reply(js객체) -> json으로 변환하여 data에 넣음
+            contentType: "application/json; charset=utf-8",     //전송 타입
+
+            success: function(result, status, xhr){     //result: 응답 데이터("success")
+                if(callback){
+                    callback(result);
+                }
+            },
+            error: function(xhr, status, err){
+                if(error){
+                    error(err);
+                }
+            }
+        });
+    } //end update
+    
+    function displayTime(timeValue){
+
+        let today = new Date();
+        let gap = today.getTime() - timeValue;
+
+        let dataObj = new Date(timeValue);
+        let str = "";
+
+        if(gap < (1000*60*60*24)){
+            let hh = dataObj.getHours();
+            let mi = dataObj.getMinutes();
+            let ss = dataObj.getSeconds();
+
+            return [ (hh > 9 ? '' : '0') + hh, ":",
+                     (mi > 9 ? '' : '0') + mi, ":",
+                     (ss > 9 ? '' : '0') + ss
+                    ].join('');
+        }else{
+            let yy = dataObj.getFullYear();
+            let mm = dataObj.getMonth();
+            let dd = dataObj.getDate();
+
+            return [
+                    yy, '/', (mm > 9 ? '' : '0') + mm, '/', (dd > 9 ? '' : '0') +dd
+                    ].join('');
+        }
+    } //end displayTime
+
 
     return {
         add:add,
         getList: getList,
         remove: remove,
+        get: get,
+        update: update,
+        displayTime: displayTime,
     };
 })();
