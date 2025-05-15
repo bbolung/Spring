@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.zerock.domain.Criterial;
+import org.zerock.domain.ReplyPageDTO;
 import org.zerock.domain.ReplyVO;
 import org.zerock.service.ReplyService;
 
@@ -44,8 +45,9 @@ public class ReplyController {
 	
 	//produces 생략O, xml 방식으로 받지X, json만 사용
 	//전달받은 값 + HTTP 상태 200 전달
+	//전체 목록 조회
 	@GetMapping(value = "/pages/{bno}/{page}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<ReplyVO>> getList(
+	public ResponseEntity<ReplyPageDTO> getList(
 			@PathVariable("bno") Long bno,
 			@PathVariable("page") int page
 			){
@@ -53,7 +55,7 @@ public class ReplyController {
 		
 		Criterial cri = new Criterial(page, 10);
 		
-		return new ResponseEntity<>(service.getList(cri, bno), HttpStatus.OK);
+		return new ResponseEntity<>(service.getListPage(cri, bno), HttpStatus.OK);
 	}
 	
 	//단건 데이터 조회

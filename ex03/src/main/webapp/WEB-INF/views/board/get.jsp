@@ -20,7 +20,7 @@
             <!-- end panel-heading -->
             <div class="panel-body">
                 	<div class="form-group">
-                		<lable>Bno</lable>
+                		<label>Bno</lable>
                 		<input class="form-control" name="bno" 
                 			value="<c:out value='${board.title}' />" readonly="readonly">
                 	</div>
@@ -71,19 +71,12 @@
             </div>
             <!-- end panel-heading -->
             <div class="panel-body">
-                	<ul class="chat">
-                		<li class="left clearfix" data-rno='12'>
-	                		<div>
-	                			<div class="header">
-	                				<strong class="primary-dont">user00</strong>
-	                				<small class="pull-right text-muted">2025-05-14</small>
-	                			</div>
-	                			<p>Good Job!</p>
-	                		</div>
-                		</li>
-                	</ul>
+               	<ul class="chat">
+               	</ul>
             </div>
             <!-- end panel-body -->
+            <div class="panel-footer">
+            </div>
         </div>
         <!-- end panel -->
     </div>
@@ -147,7 +140,21 @@
 			replyService.getList(
 					{bno: bnoValue, page: page || 1},
 					
-					function(list){
+					function(replyCnt, list){
+						
+						/*
+						console.log("=== 전달 확인 ===");
+						console.log("replyCnt: " + replyCnt);
+						console.log("list: " + list);
+						*/
+						
+						//마지막 페이지 이동
+						if(page == -1){
+							pageNum = Math.ceil(replyCnt/10.0); 	// 172/10 = 17.2 = 18
+							showList(pageNum);
+							return;
+						}
+						
 						let str="";
 						
 						if(list == null || list.length == 0){
@@ -168,6 +175,8 @@
 						}
 						
 						replyUL.html(str);
+						
+						showReplyPage(replyCnt); 	//페이징 처리 호출
 					}
 			)
 		}; //end showList()
@@ -206,11 +215,11 @@
 				modal.find("input").val("");
 				modal.modal("hide");
 				
-				showList(1);
+				showList(-1);
 			});
 		});
 		
-		//댓글 클릭 이벤트 처리
+		//댓글 클릭 이벤트 처리 - 이벤트 위임
 		replyUL.on("click", "li", function(e){
 			let rno = $(this).data('rno');
 			
@@ -225,7 +234,9 @@
 					.attr("readonly", "readonly");
 					modal.data("rno", reply.rno);
 					
-					modal.find("button[id = 'modalRegisterBtn']").hide();
+					modal.find("button[id != 'modalCloseBtn']").hide();
+					modalModBtn.show();
+					modalRemoveBtn.show();
 					
 					modal.modal("show");
 				}
@@ -241,7 +252,7 @@
 			replyService.update(reply, function(result){
 				alert(result);
 				modal.modal("hide");
-				showList(1);
+				showList(pageNum);
 			});
 		});
 		
@@ -252,10 +263,69 @@
 			replyService.remove(rno, function(result){
 				alert(result);
 				modal.modal("hide");
-				showList(1);
+				showList(pageNum);
 			});
 		});
 		
+		//페이징 처리
+		let pageNum = 1;
+		let replyPageFooter = $(".panel-footer");
+		
+		function showReplyPage(replyCnt){
+		
+		   let endNum = Math.ceil(pageNum /10.0) * 10;
+		   let startNum = endNum - 9;
+		   
+		   let prev = startNum != 1;  //이전버튼
+		   let next = false;          //다음버튼
+		   
+		   //real page( 끝 페이지 재계산)
+		   if(endNum * 10 >= replyCnt){
+		      endNum = Math.ceil(replyCnt/10.0);
+		   }
+		   
+		   //next버튼 유무 조건?
+		   if(endNum *10 < replyCnt){ 
+		      next = true;
+		   }
+		   
+		   let str = "<ul class='pagination pull-right'>";
+		   
+		   if(prev){
+		      str+= "<li class='page-item'>"
+		      str+= "<a class='page-link' href='"+(startNum-1)+"'>Previous</a></li>";
+		   }
+		   
+		   for(let i=startNum; i<=endNum; i++){
+		      let active = pageNum == i? "active":"";
+		      
+		      str+= "<li class='page-item "+active+"'><a class='page-link' href='"+i+"'>" + i + "</a></li>";
+		   }
+		   
+		   if(next){
+		      str+= "<li class='page-item'>"
+		      str+= "<a class='page-link' href='"+(endNum+1)+"'>Next</a></li>";
+		   }
+		   
+		   str+= "</ul>";
+		   
+		   console.log(str);
+		   
+		   replyPageFooter.html(str);
+		   
+		}  //end showReplyPage
+		
+		replyPageFooter.on("click", "li a", function(e){
+	         e.preventDefault();
+	         
+	         let targetPageNum = $(this).attr("href");
+	         
+	         pageNum = targetPageNum;
+	         
+	         showList(pageNum);
+	         
+	      }); //end replyPageFooter
+
 	});
 	
 	

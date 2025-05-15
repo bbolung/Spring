@@ -33,12 +33,15 @@ let replyService = (function(){
         let page = param.page || 1;     //param.page 값이 없는 경우 1 대입
 
         $.ajax({
+        	//요청 Controller에게 전달
             type: 'get',
             url: '/replies/pages/' + bno + "/" + page,
-
+			
+			//Controller의 return 값 result에 저장되어O
             success: function(result, status, xhr){
                 if(callback){
-                    callback(result);
+                    callback(result.replyCnt, result.list);
+                    console
                 }
             },
             error: function(xhr, status, er){
@@ -47,7 +50,7 @@ let replyService = (function(){
                 }
             }
         });
-    } //end getList(전체 데이터 조회회)
+    } //end getList(전체 데이터 조회)
 
     function remove(rno, callback, error){
         $.ajax({

@@ -68,4 +68,14 @@ public class ReplyMapperTests {
 		mapper.getListWithPaging(cri, bno)
 			.forEach(reply -> log.info(reply));
 	}
+	
+	//인덱스 sql test -> 댓글 많은 게시글 bno값 사용
+	@Test
+	public void testList2() {
+		Criterial cri = new Criterial(2,3);  //2page의 amount= 3
+		
+		mapper.getListWithPaging(cri, 786442L)
+			.forEach(list -> log.info(list));
+	}
+	
 }
