@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ul,ol,li{list-style: none; margin: 0; padding: 0;}
+
+.panel-body{
+    margin: 24px auto; padding: 20px; width: 1200px;
+}
+
+.form-group{
+    display: flex; flex-direction: row; justify-content: center;
+    align-items: flex-start; gap: 30px;
+}
+
+img{border: 1px solid #000; margin-top: 10px;}
+
+.info-table{
+    width: 60%; height: 80%; margin-top: 10px;
+    border-collapse: collapse;
+}
+
+th, td{padding: 8px 0; text-align: center; border-bottom: 1px solid #ddd;}
+
+.form-control{width: 100%;}
+
+input[readonly], textarea[readonly] {background-color: #eee;}
+
+input, textarea{border: 1px solid #ddd;}
+
+.button{float: right; margin: 5px 50px;}
+
+.row{
+    margin: 24px auto; padding: 20px; width: 1200px;
+}
+
+.col-lg-12{margin: 0 50px;}
