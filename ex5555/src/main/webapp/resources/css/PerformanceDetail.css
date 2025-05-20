@@ -1,0 +1,156 @@
+
+@media (max-width: 768px) {
+    .performanceDetail-header {
+        flex-direction: column;
+    }
+
+    .performanceDetail-img,
+    .performanceDetail-info {
+        width: 100%;
+    }
+
+    .performanceDetail-table {
+        width: 100%;
+    }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+}
+
+
+.art_sns li a {
+    display: inline-block;
+    padding: 5px 10px;
+    background: #eee;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #333;
+}
+
+.breadcrumb {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+}
+
+.breadcrumb li {
+  display: flex;
+  align-items: center;
+  font-size: 0.95rem;
+}
+
+.breadcrumb .separator {
+  margin: 0 6px;
+  color: #aaa;
+}
+
+.sopt_list {
+    display: flex;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    font-size: 14px;
+    margin-bottom: 20px;
+    margin-left: 30px;
+    align-items: center;
+    color: #555;
+}
+
+
+
+.title{
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.material-symbols-outlined {
+    font-size: 18px;
+    vertical-align: middle;
+}
+
+.performanceDetail-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; /* 좌측 정렬 유지 */
+    align-items: flex-start;
+    gap: 30px;
+    padding: 0 50px;
+    box-sizing: border-box;
+
+    /* 추가 - 오른쪽으로 이동 */
+    margin-left: auto;  /* 좌측 여백 자동 채우기 */
+    width: fit-content; /* 내용 크기만큼 너비 */
+}
+
+.performanceDetail-img .img-wrap {
+    max-width: 500px;
+}
+
+.imgUrl {
+    max-width: 90%;
+    height: auto;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+.performanceDetail-info {
+    flex: 1;
+    min-width: 250px;
+}
+
+.performanceDetail-table {
+    width: 800px;
+    max-width: 100%;    /* 화면이 작으면 최대 100%까지만 줄어듦 */
+    min-width: 600px; 
+    border-collapse: collapse;
+}
+
+.performanceDetail-table th,
+.performanceDetail-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.performanceDetail-table th {
+    background-color: #f2f2f2;
+    width: 120px;
+    color: #333;
+    text-align: center;
+}
+
+.btn-wrap {
+    margin-top: 210px;     /* 표와의 거리 */
+    margin-bottom: 0;     /* performanceDetail-info 아래쪽에 딱 붙도록 */
+    text-align: center;   /* 중앙 정렬 */
+}
+
+.back-button {
+    padding: 10px 24px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.back-button:hover {
+    background-color: #555;
+}

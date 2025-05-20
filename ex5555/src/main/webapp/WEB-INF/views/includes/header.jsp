@@ -13,11 +13,6 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/plugin/swiper-bundle.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/token/krds_tokens.css">
 
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/review/reviewDetail.css">
-<link href="../../../resources/css/review/reviewDetail.css" rel="stylesheet">
-<!-- Bootstrap Core CSS -->
-<link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
 <script src="${pageContext.request.contextPath}/resources/js/component/ui-script.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/plugin/swiper-bundle.min.js"></script>
 </head>

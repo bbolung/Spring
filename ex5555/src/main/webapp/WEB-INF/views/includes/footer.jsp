@@ -1,41 +1,64 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="../../../resources/css/common/common.css" rel="stylesheet">
+  <link href="../../../resources/css/component/component.css" rel="stylesheet">
+  <link href="../../../resources/css/component/output.css" rel="stylesheet">
+  <link href="../../../resources/css/plugin/swiper-bundle.min.css" rel="stylesheet">
+  <link href="../../../resources/css/token/krds_tokens.css" rel="stylesheet">
+  <script src="../../../resources/js/component/ui-script.js"></script>
+  <script src="../../../resources/js/plugin/swiper-bundle.min.js"></script>
+</head>
+<body>
 
-		</div>
-	<!-- /#page-wrapper -->
+<!-- footer -->
+<footer id="krds-footer">
+  <div class="inner">
+    <div class="f-cnt">
+      <div class="f-info">
+        <!-- 정보 영역 -->
+      </div>
+      <div class="f-link">
+        <div class="link-go">
+          <!-- 링크 영역 -->
+        </div>
+      </div>
     </div>
-    <!-- /#wrapper -->
 
-    <!-- jQuery -->
-    <!--<script src="/resources/vendor/jquery/jquery.min.js"></script>-->
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="/resources/vendor/bootstrap/js/bootstrap.min.js"></script>
-
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="/resources/vendor/metisMenu/metisMenu.min.js"></script>
-
-    <!-- DataTables JavaScript -->
-    <script src="/resources/vendor/datatables/js/jquery.dataTables.min.js"></script>
-    <script src="/resources/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
-    <script src="/resources/vendor/datatables-responsive/dataTables.responsive.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="/resources/dist/js/sb-admin-2.js"></script>
-
-    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
-    <script>
-    $(document).ready(function() {
-        $('#dataTables-example').DataTable({
-            responsive: true
-        });
-        $(".sidebar-nav")
-        .attr("class", "sidervar-nav navbar-collapse collapse")
-        .attr("aria-expanded", 'false')
-        .attr("style", "height:1px");
-    });
-    </script>
+    <div class="f-btm">
+      <div class="f-btm-text">
+        <div class="f-menu">
+          <a href="#" class="point">개인정보처리방침</a>
+          <a href="#">저작권 정책</a>
+          <a href="#">웹 접근성 품질인증 마크 획득</a>
+        </div>
+        <div class="link-sns">
+          <a href="https://www.instagram.com/" class="krds-btn xlarge icon border" target="_blank" title="새 창 열기">
+            <span class="sr-only">인스타그램</span>
+            <i class="svg-icon ico-instagram"></i>
+          </a>
+          <a href="https://youtube.com" class="krds-btn xlarge icon border" target="_blank" title="새 창 열기">
+            <span class="sr-only">유튜브</span>
+            <i class="svg-icon ico-youtube"></i>
+          </a>
+          <a href="https://x.com" class="krds-btn xlarge icon border" target="_blank" title="새 창 열기">
+            <span class="sr-only">X</span>
+            <i class="svg-icon ico-sns-x"></i>
+          </a>
+          <a href="https://www.facebook.com" class="krds-btn xlarge icon border" target="_blank" title="새 창 열기">
+            <span class="sr-only">페이스북</span>
+            <i class="svg-icon ico-facebook"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
 
 </body>
-
 </html>
