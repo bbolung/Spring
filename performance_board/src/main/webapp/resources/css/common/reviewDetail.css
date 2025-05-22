@@ -1,0 +1,208 @@
+@media (max-width: 768px) {
+    .reivewDetail-header {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .reivewDetail-img,
+    .info-table, .breadcrumb {
+        width: 100%;
+    }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+.contents{
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+nav, .breadcrumb, .breadcrumb li{
+  background: none !important;
+}
+
+.breadcrumb {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.breadcrumb li {
+  display: flex;
+  align-items: center;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.breadcrumb .separator {
+  margin: 0 6px;
+  color: #aaa;
+}
+
+.sopt_list {
+    display: flex;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    font-size: 14px;
+    margin-bottom: 20px;
+    margin-left: 30px;
+    align-items: center;
+    color: #555;
+}
+
+.material-symbols-outlined {
+    font-size: 18px;
+    vertical-align: middle;
+}
+
+.reivewDetail-header{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 30px;
+    padding: 0 50px;
+
+    margin-left: auto;
+    width: fit-content;
+}
+
+.reivewDetail-img .img-wrap {
+    max-width: 500px;
+}
+
+.imgUrl {
+    max-width: 90%;
+    height: auto;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+.info-table {
+    flex: 1;
+    min-width: 250px;
+}
+
+.info-table {
+    width: 800px;
+    max-width: 100%;    /* 화면이 작으면 최대 100%까지만 줄어듦 */
+    min-width: 600px; 
+    border-collapse: collapse;
+}
+
+.info-table th,
+.info-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.info-table th {
+    background-color: #f2f2f2;
+    width: 120px;
+    color: #333;
+    text-align: center;
+}
+
+.btn-wrap {
+    margin-top: 210px;     /* 표와의 거리 */
+    margin-bottom: 0;     /* performanceDetail-info 아래쪽에 딱 붙도록 */
+    text-align: center;   /* 중앙 정렬 */
+}
+
+.button{float: right; margin: 10px 50px;}
+
+.btn-outline {
+  color: inherit;
+  background-color: transparent;
+  transition: all .5s;
+}
+
+.btn-info.btn-outline {
+  color: #5bc0de;
+}
+
+.btn-danger.btn-outline {
+  color: #d9534f;
+}
+
+.btn-primary.btn-outline:hover,
+.btn-success.btn-outline:hover,
+.btn-info.btn-outline:hover,
+.btn-warning.btn-outline:hover,
+.btn-danger.btn-outline:hover {
+  color: white;
+}
+
+.chat {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chat li {
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px dotted #999999;
+}
+
+.chat li.left .chat-body {
+  margin-left: 60px;
+}
+
+.chat li.right .chat-body {
+  margin-right: 60px;
+}
+
+.chat li .chat-body p {
+  margin: 0;
+}
+
+.chat li .chat-body p {
+  margin: 0;
+}
+.chat li::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.chat .glyphicon {
+  margin-right: 5px;
+}
+.chat-reply .reply-body {
+  height: 350px;
+  overflow-y: scroll;
+}
+
+.chat .glyphicon,
+.panel .slidedown .glyphicon {
+  margin-right: 5px;
+}
+
+.button-wrap {
+  display: block;
+  width: 100%;
+  text-align: right;
+  padding: 20px 50px;
+  box-sizing: border-box;
+  margin-bottom: 0;
+  clear: both; /* 👈 float나 flex 영향 차단 */
+}
+
+.reply-section {
+  display: block;
+  width: 100%;
+  margin-top: 40px;
+  clear: both; /* 👈 위 요소가 float이면 줄바꿈 강제 */
+}

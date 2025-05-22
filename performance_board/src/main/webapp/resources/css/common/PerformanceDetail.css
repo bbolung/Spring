@@ -1,0 +1,237 @@
+@charset "UTF-8";
+@media (max-width: 768px) {
+    .performanceDetail-header {
+        flex-direction: column;
+    }
+
+    .performanceDetail-img,
+    .performanceDetail-info {
+        width: 100%;
+    }
+
+    .performanceDetail-table {
+        width: 100%;
+    }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+}
+
+
+.art_sns li a {
+    display: inline-block;
+    padding: 5px 10px;
+    background: #eee;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #333;
+}
+
+.breadcrumb {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+}
+
+.breadcrumb li {
+  display: flex;
+  align-items: center;
+  font-size: 0.95rem;
+}
+
+.breadcrumb .separator {
+  margin: 0 6px;
+  color: #aaa;
+}
+
+.sopt_list {
+    display: flex;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    font-size: 100px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    margin-left: 280px;
+    align-items: center;
+    color: #555;
+}
+
+
+
+.title{
+    font-size: 30px;
+    margin-bottom: 15px;
+    max-width: 100%;  /* 부모 컨테이너 너비 안에서 */
+    overflow-wrap: break-word; /* 긴 단어도 줄바꿈 */
+    white-space: normal;
+}
+
+.material-symbols-outlined {
+    font-size: 18px;
+    vertical-align: middle;
+}
+
+.performanceDetail-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; /* 좌측 정렬 유지 */
+    align-items: flex-start;
+    gap: 30px;
+    padding: 0 50px;
+    box-sizing: border-box;
+
+}
+
+.performanceDetail-img .img-wrap {
+    max-width: 500px;
+}
+
+.imgUrl {
+    max-width: 90%;
+    height: auto;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+.contents {
+    display: flex;
+    justify-content: center; /* 수평 가운데 정렬 */
+    padding: 50px 20px;
+
+}
+
+.performanceDetail-info {
+    flex: 1;
+    min-width: 250px;
+    max-width: 800px
+}
+
+.performanceDetail-table {
+    width: 800px;
+    max-width: 100%;    /* 화면이 작으면 최대 100%까지만 줄어듦 */
+    min-width: 600px; 
+    border-collapse: collapse;
+}
+
+.performanceDetail-table th,
+.performanceDetail-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.performanceDetail-table th {
+    background-color: #f2f2f2;
+    width: 120px;
+    color: #333;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.performanceDetail-info {
+  display: flex;
+  flex-direction: column;
+  /* flex: 1; // 필요하면 유지 */
+}
+
+.btn-wrap {
+  margin-top: 20px;
+  align-self: flex-end; /* 오른쪽 정렬 */
+  text-align: right; /* 텍스트도 오른쪽 정렬 */
+}
+
+
+.btn {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  -webkit-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+}
+
+.btn-default {
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+}
+
+.btn-default:hover,
+.btn-default:focus,
+.btn-default:active,
+.btn-default.active,
+.open > .dropdown-toggle.btn-default {
+  color: #333;
+  background-color: #e6e6e6;
+  border-color: #adadad;
+}
+
+.btn-default:active,
+.btn-default.active,
+.open > .dropdown-toggle.btn-default {
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+
+.btn-default.disabled,
+.btn-default[disabled],
+fieldset[disabled] .btn-default,
+.btn-default.disabled:hover,
+.btn-default[disabled]:hover,
+fieldset[disabled] .btn-default:hover,
+.btn-default.disabled:focus,
+.btn-default[disabled]:focus,
+fieldset[disabled] .btn-default:focus,
+.btn-default.disabled:active,
+.btn-default[disabled]:active,
+fieldset[disabled] .btn-default:active,
+.btn-default.disabled.active,
+.btn-default[disabled].active,
+fieldset[disabled] .btn-default.active {
+  background-color: #fff;
+  border-color: #ccc;
+  color: #ccc;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.btn:focus,
+.btn.focus,
+.btn:active:focus,
+.btn:active.focus,
+.btn.active:focus,
+.btn.active.focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}

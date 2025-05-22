@@ -234,7 +234,7 @@
 					.attr("readonly", "readonly");
 					modal.data("rno", reply.rno);
 					
-					modal.find("button[id != 'modalCloseBtn']").hide();
+					modal.find("button[id = 'modalCloseBtn']").hide();
 					modalModBtn.show();
 					modalRemoveBtn.show();
 					

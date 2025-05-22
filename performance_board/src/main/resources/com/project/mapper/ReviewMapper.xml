@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.mapper.ReviewMapper">
+  
+  <select id="read" resultType="com.project.domain.ReviewVO">
+  	select bno, img_url as img, title, writer, readcount, regdate, updatedate, content
+  	from tbl_performance
+  	where bno = #{bno}
+  </select>
+  
+  <insert id="insertSelectKey">
+  	<selectKey keyProperty="bno" order="BEFORE" resultType="Long">
+  		select seq_performance.nextval from dual
+  	</selectKey>
+  
+  	insert into tbl_performance(bno, img_url, title, writer, content)
+  	values(#{bno}, #{img}, #{title}, #{writer}, #{content})
+  </insert>
+  
+  <delete id="delete">
+  	delete from tbl_performance where bno = #{bno}
+  </delete>
+  
+  <update id="update">
+  	update tbl_performance
+  	set img_url = #{img},
+  		title = #{title},
+  		content = #{content},
+  		updatedate = sysdate
+  	where bno = #{bno}
+  </update>
+  
+  <update id="updateReadCount">
+  	update tbl_performance
+  	set readcount = readcount + 1
+  	where bno = #{bno}
+  </update>
+  
+  <update id="updateReplyCnt">
+  	update tbl_performance set replyCnt = replyCnt + #{amount} where bno = #{bno}
+  </update>
+  
+</mapper>

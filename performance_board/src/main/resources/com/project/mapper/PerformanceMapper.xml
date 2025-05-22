@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.mapper.PerformanceMapper">
+
+<select id="selectByImgKey" resultType="com.project.domain.PerformanceVO">
+    SELECT 
+        pno,
+        category,
+        image,
+        eventname AS eventName,
+        period,
+        place,
+        target_audience AS userTrgt,
+        is_free AS paid,
+        fee,
+        homepage AS homePage,
+        img_key AS imgKey
+    FROM performance
+    WHERE img_key=#{imgKey}
+</select>
+
+<insert id="insert" parameterType="com.project.domain.PerformanceVO">
+  INSERT INTO performance (
+    category, image, eventname, period, place, target_audience, is_free, fee, homepage, img_key
+  ) VALUES (
+    #{category}, #{image}, #{eventName}, #{period}, #{place}, #{userTrgt}, #{paid}, #{fee}, #{homePage}, #{imgKey}
+  )
+</insert>
+
+
+<select id="getList" resultType="com.project.domain.PerformanceVO">
+	select * from performance where pno > 0
+</select>
+
+<sql id="criteria">
+  <trim prefix="(" suffix=")" suffixOverrides="or">
+    <foreach collection="typeArr" item="type" separator="or">
+    
+      <if test="type == 'T'.toString()">
+        eventName like '%' || #{keyword} || '%'
+      </if>
+      
+      <if test="type == 'P'.toString()">
+        place like '%' || #{keyword} || '%'
+      </if>
+      
+      <if test="type == 'C'.toString()">
+        category like '%' || #{keyword} || '%'
+      </if>
+      
+    </foreach>
+  </trim>
+</sql>
+
+<!--날자순 정렬, 중복시, pno로 비교-->
+<select id="getListWithPaging" 
+				resultType="com.project.domain.PerformanceVO">
+  <![CDATA[
+    SELECT pno, category, image, eventname, period, place,
+           target_audience, is_free, fee, homepage, img_key
+    FROM (
+      SELECT ROWNUM rn, p.*
+      FROM (
+        SELECT pno, category, image, eventname, period, place,
+               target_audience, is_free, fee, homepage, img_key
+        FROM performance
+  ]]>
+  
+  <!-- 검색 조건 포함 -->
+  <where>
+    <include refid="criteria"/>
+  </where>
+  
+  <![CDATA[
+        ORDER BY TO_DATE(SUBSTR(period, 1, 10), 'YYYY-MM-DD') DESC, pno DESC
+      ) p
+      WHERE ROWNUM <= #{pageNum} * #{amount}
+    )
+    WHERE rn > (#{pageNum} - 1) * #{amount}
+  ]]>
+</select>
+
+  
+<select id="getTotalCount" resultType="int">
+  SELECT count(*) FROM performance
+ <where>
+    <include refid="criteria"/>
+   AND pno > 0
+  </where>
+</select>
+
+<select id="searchTest" resultType="com.project.domain.PerformanceVO">
+  <![CDATA[
+    SELECT * FROM performance
+    WHERE
+  ]]>
+  
+  <trim suffix="and"> 
+	  	<foreach collection="map" index="key" item="val" 
+	  			separator="or" open="(" close=")">
+      <if test="key=='T'.toString()">
+        eventname like #{val}
+      </if>
+      <if test="key == 'P'.toString()">
+        place like #{val}
+      </if>
+      <if test="key == 'C'.toString()">
+        category like #{val}
+      </if>
+    </foreach>
+  </trim>
+
+  <![CDATA[
+  		rownum < 10
+  ]]>
+</select>
+
+
+</mapper>

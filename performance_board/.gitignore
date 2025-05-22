@@ -1,0 +1,23 @@
+# Maven 빌드 결과물
+target/
+
+# Eclipse / STS 관련 파일
+.classpath
+.project
+.settings/
+
+# 로그, 백업, 임시 파일
+*.log
+*.tmp
+*.bak
+*.swp
+
+# OS 관련
+.DS_Store
+Thumbs.db
+
+# Git 관련
+*.orig
+
+# performance_board 프로젝트 내부 target 무시
+/performance_board/target/
